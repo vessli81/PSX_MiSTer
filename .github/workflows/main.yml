@@ -1,0 +1,20 @@
+name: Compile MiSTer Core
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build core
+        uses: MiSTer-devel/GHA@main
+        with:
+          core_name: PSX
+          modelsim: 'false'
